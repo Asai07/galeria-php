@@ -1,0 +1,195 @@
+/*
+
+All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77). 
+        
+The 'supports' rule will only run if your browser supports CSS grid.
+
+Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+:root {
+	/* Base font size */
+	font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100vh;
+	background-color: #fafafa;
+}
+
+.container {
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 0 2rem 2rem;
+}
+
+.heading {
+	font-family: "Montserrat", Arial, sans-serif;
+	font-size: 4rem;
+	font-weight: 500;
+	line-height: 1.5;
+	text-align: center;
+	padding: 3.5rem 0;
+	color: #1a1a1a;
+}
+
+.heading span {
+	display: block;
+}
+
+.gallery {
+	display: flex;
+	flex-wrap: wrap;
+	/* Compensate for excess margin on outer gallery flex items */
+	margin: -1rem -1rem;
+}
+
+.gallery-item {
+	/* Minimum width of 24rem and grow to fit available space */
+	flex: 1 0 24rem;
+	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+	margin: 1rem;
+	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
+
+.gallery-image {
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 400ms ease-out;
+}
+
+.gallery-image:hover {
+	transform: scale(1.15);
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+
+@supports (display: grid) {
+	.gallery {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+		grid-gap: 2rem;
+	}
+
+	.gallery,
+	.gallery-item {
+		margin: 0;
+	}
+}
+:root {
+  --font-smoothing: auto;
+  --background-color: #fff;
+  --button-primary-background-color: #111;
+  --button-primary-background-color-hover: #242424;
+  --button-primary-text-color: #fff;
+  --faded-text-color: #d1d1d1;
+  --form-input-radio-button-border-color: #d1d1d1;
+  --form-input-radio-button-checked-border-color: #007fff;
+  --form-input-radio-button-checked-dot-color: #007fff;
+  --link-text-color-hover: #111;
+  --link-text-color: #767676;
+  --placeholder-background-color: #0000000d;
+  --small-faded-text-color: #767676;
+  --text-color: #111;
+  --demos-alt-background: #eee;
+  --demos-sidebar-active-entry-link: green;
+}
+/* Estilos para los botones */
+.like-button, .share-button, .download-button {
+    font-smoothing: var(--font-smoothing);
+    background-color: var(--background-color);
+    color: var(--link-text-color);
+    border: var(--form-input-radio-button-border-color);
+    padding: 10px 20px; /* Ejemplo, ajusta según tus necesidades */
+    margin: 5px 5px 5px 5px;
+    border-radius: 5px; /* Ejemplo, ajusta según tus necesidades */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.button-28{
+  background-color: orange;
+  color: var(--button-primary-text-color);
+  border-radius: 1px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-color: #0000000d;
+}
+
+.like-button:hover,
+.download-button:hover, .share-button:hover {
+    background-color: var(--button-primary-background-color-hover);
+    color: var(--button-primary-text-color);
+    border-color: var(--form-input-radio-button-checked-border-color);
+}
+.liked {
+  color: red; /* Cambia el color del corazón al rojo */
+}
+
+.image-container {
+  position: relative;
+  width: 100%; /* Ancho deseado */
+  height: 40rem; /* Altura deseada */
+}
+
+.gallery-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease-out;
+}
+
+.button-container {
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start; /* Esto hace que los botones se alineen hacia los extremos */
+    align-items: left; /* Para alinear verticalmente los botones */
+}
+.download-container {
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-end; /* Esto hace que los botones se alineen hacia los extremos */
+    align-items: left; /* Para alinear verticalmente los botones */
+}
+
+
+/* CSS */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+}
